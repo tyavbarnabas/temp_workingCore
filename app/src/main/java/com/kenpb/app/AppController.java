@@ -52,6 +52,11 @@ public class AppController {
     @GetMapping("/{pluginId}/delete")
     public Object delete(@PathVariable String pluginId) {
         pluginManager.deletePlugin(pluginId);
+        return "plugin deleted successfully";
+    }
+    @GetMapping("/{pluginId}/uninstall")
+    public Object uninstall(@PathVariable String pluginId) {
+        pluginManager.unloadPlugin(pluginId);
         return Collections.singletonMap("state", pluginManager.getPlugin(pluginId).getPluginState());
     }
 
@@ -74,7 +79,8 @@ public class AppController {
             pluginManager.loadPlugins();
             pluginManager.startPlugins();
 
-            return Collections.singletonMap("state", "success");
+            return pluginManager.getResolvedPlugins().stream()
+                    .map(PluginWrapper::getPluginId).collect(Collectors.toList());
         } catch (IOException e) {
             return Collections.singletonMap("state", "error");
         }
