@@ -50,6 +50,7 @@
                 <version>${sbp.version}</version>
             </dependency>
         </dependencies>
+
     </dependencyManagement>
 
     <build>
