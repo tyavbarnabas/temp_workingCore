@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.kenpb.app.security.SecurityConfig,\
+ com.kenpb.app.security.PermissionCheckingAspectConfig
