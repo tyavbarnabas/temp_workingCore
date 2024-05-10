@@ -48,6 +48,7 @@ public class User implements UserDetails, Principal {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime lastModifiedDate;
 
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -95,8 +96,7 @@ public class User implements UserDetails, Principal {
     public boolean isEnabled() {
         return enabled;
     }
-
-    private String fullName() {
+    public Object getFullName() {
         return firstname + " " + lastname;
     }
 }

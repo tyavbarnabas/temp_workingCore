@@ -112,12 +112,9 @@ public class RoleServiceImpl implements RoleService {
 
         // Update the role with the data from the RoleDTO
         role.setName(roleDTO.getName());
-        role.setDescription(roleDTO.getDescription());
         role.setCode(roleDTO.getCode());
         role.setDateCreated(LocalDateTime.now());
         role.setDateModified(LocalDateTime.now());
-        role.setPermission(roleDTO.getPermission());
-        role.setMenu(roleDTO.getMenu());
 
         // Save the updated role back to the database
         Role updatedRole = roleRepository.save(role);

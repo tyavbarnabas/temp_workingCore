@@ -1,6 +1,8 @@
 package com.kenpb.app.controllers;
 
 import com.kenpb.app.dtos.ApiResponse;
+import com.kenpb.app.dtos.AuthenticationRequest;
+import com.kenpb.app.dtos.AuthenticationResponse;
 import com.kenpb.app.dtos.RegistrationRequest;
 import com.kenpb.app.service.AuthenticationService;
 import jakarta.validation.Valid;
@@ -22,6 +24,13 @@ public class AuthenticationController {
     public ResponseEntity<ApiResponse> register(@RequestBody RegistrationRequest request) {
         log.info("Request received: {}", request);
         return ResponseEntity.ok(authenticationService.register(request));
+    }
+
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody  @Valid AuthenticationRequest request){
+        return ResponseEntity.ok(authenticationService.authenticate(request));
+
     }
 
 
