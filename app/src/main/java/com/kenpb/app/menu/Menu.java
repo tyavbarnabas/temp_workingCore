@@ -1,4 +1,4 @@
-package com.kenpb.app.models;
+package com.kenpb.app.menu;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

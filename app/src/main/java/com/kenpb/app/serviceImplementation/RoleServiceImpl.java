@@ -4,7 +4,7 @@ package com.kenpb.app.serviceImplementation;
 import com.kenpb.app.constants.GeneralResponseEnum;
 import com.kenpb.app.dtos.ApiResponse;
 import com.kenpb.app.dtos.RoleDTO;
-import com.kenpb.app.models.Role;
+import com.kenpb.app.role.Role;
 import com.kenpb.app.repositories.RoleRepository;
 import com.kenpb.app.service.RoleService;
 import jakarta.persistence.EntityNotFoundException;
@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -73,8 +74,8 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public ApiResponse createRole(RoleDTO roleDTO) {
 
-        Role existingRole = roleRepository.findByName(roleDTO.getName());
-        if (existingRole != null) {
+        Optional<Role> existingRole = roleRepository.findByName(roleDTO.getName());
+        if (existingRole.isPresent()) {
             throw new EntityNotFoundException("Role already exists");
         }
 

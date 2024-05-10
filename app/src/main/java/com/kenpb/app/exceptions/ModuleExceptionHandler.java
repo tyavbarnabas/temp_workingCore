@@ -67,4 +67,11 @@ public class ModuleExceptionHandler extends RuntimeException {
             super(noPluginsFound);
         }
     }
+
+    public static class UserRoleNotFoundException extends RuntimeException {
+        public UserRoleNotFoundException(String roleNotFound) {
+            super(roleNotFound);
+        }
+    }
+
 }

@@ -6,12 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication(scanBasePackages = "com.kenpb", exclude = {
         // SecurityAutoConfiguration.class, SecurityFilterAutoConfiguration.class,
 })
 @EnableTransactionManagement
+@EnableJpaAuditing
 public class AppStarter {
 
     public static void main(String[] args) {
@@ -21,7 +24,6 @@ public class AppStarter {
         builder.sources(AppStarter.class);
         builder.build().run();
     }
-
 
     @Bean
     public ApplicationContextAware multiApplicationContextProviderRegister() {

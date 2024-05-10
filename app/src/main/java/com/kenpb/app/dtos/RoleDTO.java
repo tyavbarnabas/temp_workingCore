@@ -1,7 +1,7 @@
 package com.kenpb.app.dtos;
 
-import com.kenpb.app.models.Menu;
-import com.kenpb.app.models.Permission;
+import com.kenpb.app.menu.Menu;
+import com.kenpb.app.permission.Permission;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

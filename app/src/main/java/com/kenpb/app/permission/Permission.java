@@ -1,4 +1,4 @@
-package com.kenpb.app.models;
+package com.kenpb.app.permission;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -125,4 +125,14 @@ public class GlobalExceptionHandler {
     }
 
 
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(ModuleExceptionHandler.UserRoleNotFoundException.class)
+    public ResponseEntity<ApiResponse> handleUserRoleNotLoadedException(ModuleExceptionHandler.UserRoleNotFoundException ex) {
+        return new ResponseEntity<>(new ApiResponse(String.valueOf(HttpStatus.NOT_FOUND.value()),
+                ex.getMessage(),
+                GeneralResponseEnum.FAILED.getMessage()), HttpStatus.NOT_FOUND);
+    }
+
+
+
 }
