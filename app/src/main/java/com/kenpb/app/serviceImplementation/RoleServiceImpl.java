@@ -79,7 +79,6 @@ public class RoleServiceImpl implements RoleService {
             throw new EntityNotFoundException("Role already exists");
         }
 
-
         // Convert RoleDTO to Role entity
         Role role = modelMapper.map(roleDTO, Role.class);
 

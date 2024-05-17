@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString
 @Entity
 @Table(name = "lamis_user")
 @EntityListeners(AuditingEntityListener.class)
@@ -38,7 +39,7 @@ public class User implements UserDetails, Principal {
     private String email;
     private String password;
     private boolean accountLocked;
-    private boolean enabled;
+    private boolean enabled =true;
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(nullable = false, updatable = false)

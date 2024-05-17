@@ -1,7 +1,10 @@
 package com.kenpb.app.controllers;
 
 import com.kenpb.app.dtos.ApiResponse;
+import com.kenpb.app.dtos.AuthenticationRequest;
+import com.kenpb.app.dtos.AuthenticationResponse;
 import com.kenpb.app.dtos.RoleDTO;
+import com.kenpb.app.service.AuthenticationService;
 import com.kenpb.app.service.RoleService;
 import jakarta.validation.Valid;
 import lombok.*;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class RoleController {
 
     private final RoleService roleService;
+    private final AuthenticationService authenticationService;
 
 
     @GetMapping("/{id}")
@@ -29,6 +33,9 @@ public class RoleController {
         ApiResponse response = roleService.createRole(roleDTO);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+
+
 
 
 

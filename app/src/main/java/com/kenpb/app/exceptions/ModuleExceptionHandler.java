@@ -1,6 +1,7 @@
 package com.kenpb.app.exceptions;
 
 public class ModuleExceptionHandler extends RuntimeException {
+
     public ModuleExceptionHandler(String message) {
         super(message);
     }
@@ -73,5 +74,12 @@ public class ModuleExceptionHandler extends RuntimeException {
             super(roleNotFound);
         }
     }
+
+    public static class UserNotFoundException extends RuntimeException {
+        public UserNotFoundException(String message) {
+            super(message);
+        }
+    }
+
 
 }

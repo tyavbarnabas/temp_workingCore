@@ -20,7 +20,5 @@ public class RoleDTO {
     private String name;
     private String code;
     private String archived;
-    private String description;
-    private Set<Permission> permission;
-    private Set<Menu> menu;
+
 }
